@@ -1,0 +1,183 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #367783;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+body {
+  background-image: url(assets/img/wini_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px;
+  background-attachment: fixed;
+}
+
+/* NAVBAR */
+header {
+  background-color: #9ad394;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center; /* Centra el menú horizontalmente */
+  align-items: center;
+  padding: 0 15px;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 40px; /* Separación entre toggle y menú */
+}
+
+/* Botón menú hamburguesa */
+.menu-toggle {
+  display: none;
+  color: rgb(66, 72, 161);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 15px;
+  position: absolute;
+  left: 15px; /* fija el toggle a la izquierda */
+}
+
+/* Lista principal de menú */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0 auto; /* centra el menú */
+  padding: 0;
+  gap: 25px; /* espacio entre botones */
+}
+
+/* Ítems del menú */
+.menu > li {
+  position: relative;
+}
+
+.menu > li > a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.menu > li > a:hover {
+  background-color: #1c4561;
+}
+
+/* Submenú */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #4b95b5;
+  min-width: 200px;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.submenu li a {
+  padding: 12px 15px;
+  display: block;
+  color: white;
+  border-bottom: 1px solid #68b0cc;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.submenu li a:hover {
+  background-color: #3d7b95;
+}
+
+.menu li:hover .submenu {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu > li > a {
+    padding: 12px 20px;
+  }
+
+  .menu li:hover .submenu {
+    position: static;
+  }
+}
+/* GALERÍA */
+.controls {
+  margin: 20px;
+  text-align: center;
+}
+
+input[type="url"] {
+  padding: 8px;
+  width: 280px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 15px;
+  margin-left: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  align-items: center; /* centra horizontalmente las imágenes */
+  justify-content: center;
+}
+
+.gallery img {
+  width: 180px;
+  height: auto;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  transition: 0.3s ease;
+  cursor: pointer;
+ 
+}
+
+.gallery img.selected {
+  border: 3px solid #2ab9b2;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.7);
+}
